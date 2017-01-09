@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{38712AC0
 EndProject
 Project("{FF286327-C783-4F7A-AB73-9BCBAD0D4460}") = "SpecFlow.PeekSteps.Nuget", "src\SpecFlow.PeekSteps.Nuget\SpecFlow.PeekSteps.Nuget.nuproj", "{98A3D077-8F0A-4F3C-A128-5FF17C1579ED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecFlow.PeekSteps.IntegrationTests", "tests\SpecFlow.PeekSteps.IntegrationTests\SpecFlow.PeekSteps.IntegrationTests.csproj", "{755A658C-8D1E-467B-99F5-76B2D2509BEC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{98A3D077-8F0A-4F3C-A128-5FF17C1579ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98A3D077-8F0A-4F3C-A128-5FF17C1579ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{98A3D077-8F0A-4F3C-A128-5FF17C1579ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{755A658C-8D1E-467B-99F5-76B2D2509BEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{755A658C-8D1E-467B-99F5-76B2D2509BEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{755A658C-8D1E-467B-99F5-76B2D2509BEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{755A658C-8D1E-467B-99F5-76B2D2509BEC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,5 +38,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{FE30FEFB-445E-444E-867C-BF544BBAA498} = {E1DEEE1F-C449-4CAD-A6DF-5C9F8BFEC867}
 		{98A3D077-8F0A-4F3C-A128-5FF17C1579ED} = {E1DEEE1F-C449-4CAD-A6DF-5C9F8BFEC867}
+		{755A658C-8D1E-467B-99F5-76B2D2509BEC} = {38712AC0-798B-4054-AD51-E7E93571DA1B}
 	EndGlobalSection
 EndGlobal

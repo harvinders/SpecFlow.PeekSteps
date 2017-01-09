@@ -13,6 +13,7 @@ namespace SpecFlow.PeekSteps
         private readonly ITestExecutionEngine normalExecutionEngine;
         private readonly ITestExecutionEngine nullExecutionEngine;
         private bool isPeekingEnabled = true;
+        private ExecutionContext executionContext;
 
         internal List<Action<ITestExecutionEngine>> StepsToReplay = new List<Action<ITestExecutionEngine>>();
 
@@ -35,6 +36,10 @@ namespace SpecFlow.PeekSteps
 
             nullContainer.RegisterInstanceAs((IBindingInvoker)new NullBindingInvoker());
             this.nullExecutionEngine = nullContainer.Resolve<ITestExecutionEngine>();
+
+            //TODO: check with newer SpecFlow if this is still necessary
+            container.RegisterTypeAs<ExecutionContext, ExecutionContext>();
+            this.executionContext = container.Resolve<ExecutionContext>();
         }
 
         public void InitializeTestRunner(int threadId)
@@ -64,10 +69,11 @@ namespace SpecFlow.PeekSteps
 
         public void OnScenarioStart(ScenarioInfo scenarioInfo)
         {
+            ExecutionContextContainer.Contexts[ThreadId] = this.executionContext;
             //if (scenarioInfo.Tags.Contains("enable-peeking"))
             //    this.isPeekingEnabled = true;
 
-            ExecutionContext.Steps.Clear();
+            executionContext.Steps.Clear();
             this.StepsToReplay.Clear();
 
             if (this.isPeekingEnabled)
@@ -96,35 +102,37 @@ namespace SpecFlow.PeekSteps
         {
             this.StepsToReplay.Add(e => e.OnScenarioEnd());
 
-            //try
-            //{
-            if (this.isPeekingEnabled)
+            try
             {
-                int i = 0;
-                foreach (var action in this.StepsToReplay)
+                if (this.isPeekingEnabled)
                 {
-                    if (0 != i && i <= ExecutionContext.Steps.Count)
+                    int i = 0;
+                    foreach (var action in this.StepsToReplay)
                     {
-                        ExecutionContext.CurrentStep = ExecutionContext.Steps[i - 1];
-                        ExecutionContext.PreviousStep = i <= 1 ? null : ExecutionContext.Steps[i - 2];
-                        ExecutionContext.NextStep = i >= ExecutionContext.Steps.Count ? null : ExecutionContext.Steps[i];
+                        if (0 != i && i <= executionContext.Steps.Count)
+                        {
+                            executionContext.CurrentStep = executionContext.Steps[i - 1];
+                            executionContext.PreviousStep = i <= 1 ? null : executionContext.Steps[i - 2];
+                            executionContext.NextStep = i >= executionContext.Steps.Count
+                                ? null
+                                : executionContext.Steps[i];
+                        }
+                        action(ExecutionEngine);
+                        i++;
                     }
-                    action(ExecutionEngine);
-                    i++;
                 }
             }
-            //}
-            //finally
-            //{
-            //    //this.isPeekingEnabled = false;
-            //}
+            finally
+            {
+                ExecutionContextContainer.Contexts.TryRemove(ThreadId, out this.executionContext);
+            }
         }
 
         public void Given(string text, string multilineTextArg, Table tableArg, string keyword = null)
         {
             if (this.isPeekingEnabled)
             {
-                ExecutionContext.Steps.Add(new StepDefinition(StepDefinitionType.Given, text, tableArg, multilineTextArg));
+                executionContext.Steps.Add(new StepDefinition(StepDefinitionType.Given, text, tableArg, multilineTextArg));
                 this.StepsToReplay.Add(
                     e => e.Step(StepDefinitionKeyword.Given, keyword, text, multilineTextArg, tableArg));
             }
@@ -138,7 +146,7 @@ namespace SpecFlow.PeekSteps
         {
             if (this.isPeekingEnabled)
             {
-                ExecutionContext.Steps.Add(new StepDefinition(StepDefinitionType.When, text, tableArg, multilineTextArg));
+                executionContext.Steps.Add(new StepDefinition(StepDefinitionType.When, text, tableArg, multilineTextArg));
                 this.StepsToReplay.Add(
                     e => e.Step(StepDefinitionKeyword.When, keyword, text, multilineTextArg, tableArg));
             }
@@ -152,7 +160,7 @@ namespace SpecFlow.PeekSteps
         {
             if (this.isPeekingEnabled)
             {
-                ExecutionContext.Steps.Add(new StepDefinition(StepDefinitionType.Then, text, tableArg, multilineTextArg));
+                executionContext.Steps.Add(new StepDefinition(StepDefinitionType.Then, text, tableArg, multilineTextArg));
                 this.StepsToReplay.Add(
                     e => e.Step(StepDefinitionKeyword.Then, keyword, text, multilineTextArg, tableArg));
             }
@@ -166,7 +174,7 @@ namespace SpecFlow.PeekSteps
         {
             if (this.isPeekingEnabled)
             {
-                ExecutionContext.Steps.Add(new StepDefinition(ExecutionContext.CurrentDefinitionType, text, tableArg, multilineTextArg));
+                executionContext.Steps.Add(new StepDefinition(executionContext.CurrentDefinitionType, text, tableArg, multilineTextArg));
                 this.StepsToReplay.Add(e => e.Step(StepDefinitionKeyword.And, keyword, text, multilineTextArg, tableArg));
             }
             else
@@ -179,7 +187,7 @@ namespace SpecFlow.PeekSteps
         {
             if (this.isPeekingEnabled)
             {
-                ExecutionContext.Steps.Add(new StepDefinition(ExecutionContext.CurrentDefinitionType, text, tableArg, multilineTextArg));
+                executionContext.Steps.Add(new StepDefinition(executionContext.CurrentDefinitionType, text, tableArg, multilineTextArg));
                 this.StepsToReplay.Add(e => e.Step(StepDefinitionKeyword.But, keyword, text, multilineTextArg, tableArg));
             }
             else
