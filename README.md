@@ -14,7 +14,7 @@ Context | Extension method | Details
 . | GetPreviousStep() | Get details about the previously executed step  
 . | GetNextStep() | Get details about the next step to be executed
  
- ## StepDefinition
+## StepDefinition
 The step information is presented as `StepDefinition` instead of `StepInfo` object. However, the information present in `StepDefinition` is same as provided by `StepInfo`. 
 
 # Limitation
