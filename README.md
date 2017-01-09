@@ -7,7 +7,7 @@ TODO nuget
 # Usage
 The plugin works by adding extention methods to [ScenarioContext](https://github.com/techtalk/SpecFlow/wiki/ScenarioContext) and `ScenarioStepContext`
 
-Context Extension method | Details
+Context | Extension method | Details
 --- | --- | ---
 [ScenarioContext](https://github.com/techtalk/SpecFlow/wiki/ScenarioContext) | GetAllSteps() | Get all steps information  
 [ScenarioStepContext](https://github.com/techtalk/SpecFlow/wiki/ScenarioContext) | GetCurrentStep() | Get details about the currently executing step  
