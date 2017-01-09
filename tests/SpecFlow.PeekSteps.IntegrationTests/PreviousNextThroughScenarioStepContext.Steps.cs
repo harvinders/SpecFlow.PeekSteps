@@ -5,11 +5,11 @@ using Xunit;
 namespace SpecFlow.PeekSteps.IntegrationTests
 {
     [Binding]
-    public class ScenarioContextHasStepsInformationInBeforeStepHookSteps
+    public class PreviousNextThroughScenarioStepContextSteps
     {
         private readonly ScenarioContext scenarioContext;
 
-        public ScenarioContextHasStepsInformationInBeforeStepHookSteps(ScenarioContext scenarioContext)
+        public PreviousNextThroughScenarioStepContextSteps(ScenarioContext scenarioContext)
         {
             this.scenarioContext = scenarioContext;
         }
@@ -33,6 +33,18 @@ namespace SpecFlow.PeekSteps.IntegrationTests
         {
             Assert.Equal("I successfully enquire about the next statement",
                 this.scenarioContext.StepContext.PreviousStep().Text);
+        }
+
+        [Given(@"I have a simple given statement with previous step as null")]
+        public void GivenIHaveASimpleGivenStatementWithPreviousStepAsNull()
+        {
+            Assert.Equal(null, this.scenarioContext.StepContext.PreviousStep());
+        }
+
+        [Then(@"I have a simple then statement with next step as null")]
+        public void ThenIHaveASimpleThenStatementWithNextStepAsNull()
+        {
+            Assert.Equal(null, this.scenarioContext.StepContext.NextStep());
         }
     }
 }

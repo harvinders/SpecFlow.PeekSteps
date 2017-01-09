@@ -17,15 +17,15 @@ namespace SpecFlow.PeekSteps.IntegrationTests
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.1.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public partial class ScenarioContextHasStepsInformationInBeforeStepHookFeature : Xunit.IClassFixture<ScenarioContextHasStepsInformationInBeforeStepHookFeature.FixtureData>, System.IDisposable
+    public partial class PreviousAndNextStepsAreAccessedThroughScenarioStepContextFeature : Xunit.IClassFixture<PreviousAndNextStepsAreAccessedThroughScenarioStepContextFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "ScenarioStepContextHasStepInfo.feature"
+#line 1 "PreviousNextThroughScenarioStepContext.feature"
 #line hidden
         
-        public ScenarioContextHasStepsInformationInBeforeStepHookFeature()
+        public PreviousAndNextStepsAreAccessedThroughScenarioStepContextFeature()
         {
             this.TestInitialize();
         }
@@ -33,7 +33,7 @@ namespace SpecFlow.PeekSteps.IntegrationTests
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "ScenarioContext has steps information in BeforeStep hook", "\tIn order to hook into interesting events\r\n\tAs a SpecFlow statement writer\r\n\tI wa" +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Previous and next steps are accessed through ScenarioStepContext", "\tIn order to hook into interesting events\r\n\tAs a SpecFlow statement writer\r\n\tI wa" +
                     "nt to be have access to steps in BeforeStep hook", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
@@ -63,7 +63,7 @@ namespace SpecFlow.PeekSteps.IntegrationTests
             testRunner.CollectScenarioErrors();
         }
         
-        public virtual void SetFixture(ScenarioContextHasStepsInformationInBeforeStepHookFeature.FixtureData fixtureData)
+        public virtual void SetFixture(PreviousAndNextStepsAreAccessedThroughScenarioStepContextFeature.FixtureData fixtureData)
         {
         }
         
@@ -72,12 +72,12 @@ namespace SpecFlow.PeekSteps.IntegrationTests
             this.ScenarioTearDown();
         }
         
-        [Xunit.FactAttribute(DisplayName="Scenario step context is filled current, previous and next steps")]
-        [Xunit.TraitAttribute("FeatureTitle", "ScenarioContext has steps information in BeforeStep hook")]
-        [Xunit.TraitAttribute("Description", "Scenario step context is filled current, previous and next steps")]
-        public virtual void ScenarioStepContextIsFilledCurrentPreviousAndNextSteps()
+        [Xunit.FactAttribute(DisplayName="Previous and next steps are accessed through ScenarioStepContext")]
+        [Xunit.TraitAttribute("FeatureTitle", "Previous and next steps are accessed through ScenarioStepContext")]
+        [Xunit.TraitAttribute("Description", "Previous and next steps are accessed through ScenarioStepContext")]
+        public virtual void PreviousAndNextStepsAreAccessedThroughScenarioStepContext()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Scenario step context is filled current, previous and next steps", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Previous and next steps are accessed through ScenarioStepContext", ((string[])(null)));
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
@@ -96,6 +96,25 @@ this.ScenarioSetup(scenarioInfo);
             this.ScenarioCleanup();
         }
         
+        [Xunit.FactAttribute(DisplayName="Previous and next steps are null in boundary case when accessed through ScenarioS" +
+            "tepContext")]
+        [Xunit.TraitAttribute("FeatureTitle", "Previous and next steps are accessed through ScenarioStepContext")]
+        [Xunit.TraitAttribute("Description", "Previous and next steps are null in boundary case when accessed through ScenarioS" +
+            "tepContext")]
+        public virtual void PreviousAndNextStepsAreNullInBoundaryCaseWhenAccessedThroughScenarioStepContext()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Previous and next steps are null in boundary case when accessed through ScenarioS" +
+                    "tepContext", ((string[])(null)));
+#line 15
+this.ScenarioSetup(scenarioInfo);
+#line 16
+ testRunner.Given("I have a simple given statement with previous step as null", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 17
+ testRunner.Then("I have a simple then statement with next step as null", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
         [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.1.0.0")]
         [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
         public class FixtureData : System.IDisposable
@@ -103,12 +122,12 @@ this.ScenarioSetup(scenarioInfo);
             
             public FixtureData()
             {
-                ScenarioContextHasStepsInformationInBeforeStepHookFeature.FeatureSetup();
+                PreviousAndNextStepsAreAccessedThroughScenarioStepContextFeature.FeatureSetup();
             }
             
             void System.IDisposable.Dispose()
             {
-                ScenarioContextHasStepsInformationInBeforeStepHookFeature.FeatureTearDown();
+                PreviousAndNextStepsAreAccessedThroughScenarioStepContextFeature.FeatureTearDown();
             }
         }
     }

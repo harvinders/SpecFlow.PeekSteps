@@ -68,30 +68,30 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="ScenarioContextHasStepInfo.feature.cs">
+    <Compile Include="AllStepsThroughScenarioContext.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ScenarioContextHasStepInfo.feature</DependentUpon>
+      <DependentUpon>AllStepsThroughScenarioContext.feature</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ScenarioContextHasStepsInfoSteps.cs" />
-    <Compile Include="ScenarioStepContextHasStepInfo.feature.cs">
+    <Compile Include="AllStepsThroughScenarioContext.Steps.cs" />
+    <Compile Include="PreviousNextThroughScenarioStepContext.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ScenarioStepContextHasStepInfo.feature</DependentUpon>
+      <DependentUpon>PreviousNextThroughScenarioStepContext.feature</DependentUpon>
     </Compile>
-    <Compile Include="ScenarioStepContextHasStepsInfoSteps.cs" />
+    <Compile Include="PreviousNextThroughScenarioStepContext.Steps.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="ScenarioContextHasStepInfo.feature">
+    <None Include="AllStepsThroughScenarioContext.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>ScenarioContextHasStepInfo.feature.cs</LastGenOutput>
+      <LastGenOutput>AllStepsThroughScenarioContext.feature.cs</LastGenOutput>
     </None>
-    <None Include="ScenarioStepContextHasStepInfo.feature">
+    <None Include="PreviousNextThroughScenarioStepContext.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>ScenarioStepContextHasStepInfo.feature.cs</LastGenOutput>
+      <LastGenOutput>PreviousNextThroughScenarioStepContext.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>

@@ -6,11 +6,11 @@ using Xunit;
 namespace SpecFlow.PeekSteps.IntegrationTests
 {
     [Binding]
-    public class ScenarioContextHasStepsInfoSteps
+    public class AllStepsThroughScenarioContextSteps
     {
         private readonly ScenarioContext scenarioContext;
 
-        public ScenarioContextHasStepsInfoSteps(ScenarioContext scenarioContext)
+        public AllStepsThroughScenarioContextSteps(ScenarioContext scenarioContext)
         {
             this.scenarioContext = scenarioContext;
         }

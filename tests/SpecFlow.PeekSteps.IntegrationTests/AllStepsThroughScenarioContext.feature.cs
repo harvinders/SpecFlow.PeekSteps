@@ -17,15 +17,15 @@ namespace SpecFlow.PeekSteps.IntegrationTests
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.1.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public partial class ScenarioContextHasStepsInformationInBeforeScenarioHookFeature : Xunit.IClassFixture<ScenarioContextHasStepsInformationInBeforeScenarioHookFeature.FixtureData>, System.IDisposable
+    public partial class AllStepsAreAccessedThroughScenarioContextInBeforeSceanrioHookFeature : Xunit.IClassFixture<AllStepsAreAccessedThroughScenarioContextInBeforeSceanrioHookFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "ScenarioContextHasStepInfo.feature"
+#line 1 "AllStepsThroughScenarioContext.feature"
 #line hidden
         
-        public ScenarioContextHasStepsInformationInBeforeScenarioHookFeature()
+        public AllStepsAreAccessedThroughScenarioContextInBeforeSceanrioHookFeature()
         {
             this.TestInitialize();
         }
@@ -33,7 +33,7 @@ namespace SpecFlow.PeekSteps.IntegrationTests
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "ScenarioContext has steps information in BeforeScenario hook", "\tIn order to hook into interesting events\r\n\tAs a SpecFlow statement writer\r\n\tI wa" +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "All Steps are accessed through ScenarioContext in BeforeSceanrio hook", "\tIn order to hook into interesting events\r\n\tAs a SpecFlow statement writer\r\n\tI wa" +
                     "nt to be have access to steps in BeforeScenario hook", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
@@ -63,7 +63,7 @@ namespace SpecFlow.PeekSteps.IntegrationTests
             testRunner.CollectScenarioErrors();
         }
         
-        public virtual void SetFixture(ScenarioContextHasStepsInformationInBeforeScenarioHookFeature.FixtureData fixtureData)
+        public virtual void SetFixture(AllStepsAreAccessedThroughScenarioContextInBeforeSceanrioHookFeature.FixtureData fixtureData)
         {
         }
         
@@ -72,13 +72,13 @@ namespace SpecFlow.PeekSteps.IntegrationTests
             this.ScenarioTearDown();
         }
         
-        [Xunit.FactAttribute(DisplayName="Scenario context is filled with the below steps in OnBeforeScenario hook")]
-        [Xunit.TraitAttribute("FeatureTitle", "ScenarioContext has steps information in BeforeScenario hook")]
-        [Xunit.TraitAttribute("Description", "Scenario context is filled with the below steps in OnBeforeScenario hook")]
+        [Xunit.FactAttribute(DisplayName="All Steps are accessed through ScenarioContext in BeforeSceanrio hook")]
+        [Xunit.TraitAttribute("FeatureTitle", "All Steps are accessed through ScenarioContext in BeforeSceanrio hook")]
+        [Xunit.TraitAttribute("Description", "All Steps are accessed through ScenarioContext in BeforeSceanrio hook")]
         [Xunit.TraitAttribute("Category", "testof-sceanrio-context")]
-        public virtual void ScenarioContextIsFilledWithTheBelowStepsInOnBeforeScenarioHook()
+        public virtual void AllStepsAreAccessedThroughScenarioContextInBeforeSceanrioHook()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Scenario context is filled with the below steps in OnBeforeScenario hook", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("All Steps are accessed through ScenarioContext in BeforeSceanrio hook", new string[] {
                         "testof-sceanrio-context"});
 #line 7
 this.ScenarioSetup(scenarioInfo);
@@ -101,12 +101,12 @@ this.ScenarioSetup(scenarioInfo);
             
             public FixtureData()
             {
-                ScenarioContextHasStepsInformationInBeforeScenarioHookFeature.FeatureSetup();
+                AllStepsAreAccessedThroughScenarioContextInBeforeSceanrioHookFeature.FeatureSetup();
             }
             
             void System.IDisposable.Dispose()
             {
-                ScenarioContextHasStepsInformationInBeforeScenarioHookFeature.FeatureTearDown();
+                AllStepsAreAccessedThroughScenarioContextInBeforeSceanrioHookFeature.FeatureTearDown();
             }
         }
     }
