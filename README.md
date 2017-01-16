@@ -2,7 +2,7 @@
 A plugin to peek at the SpecFlow steps
 
 # Installation 
-TODO nuget
+[SpecFlow.PeekSteps](https://www.nuget.org/packages/SpecFlow.PeekSteps/)
 
 # Usage
 The plugin works by adding extention methods to [ScenarioContext](https://github.com/techtalk/SpecFlow/wiki/ScenarioContext) and `ScenarioStepContext`
